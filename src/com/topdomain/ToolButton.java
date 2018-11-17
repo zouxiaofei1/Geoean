@@ -1,7 +1,7 @@
 package com.topdomain;
 
 
-import org.xml.sax.SAXException;
+import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
 
 import javax.swing.*;
@@ -14,7 +14,7 @@ public class ToolButton extends JRadioButton {
     static {
         try {
             SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-            parser.parse(ClassLoader.getSystemClassLoader().getResourceAsStream("res/tools.xml"), new DefaultHandler());
+            parser.parse(ClassLoader.getSystemClassLoader().getResourceAsStream("res/tools.xml"), new MyDefaultHandler());
         } catch (SAXException | ParserConfigurationException | IOException e) {
             e.printStackTrace();
         }
@@ -23,5 +23,9 @@ public class ToolButton extends JRadioButton {
 
     public ToolButton(int index) {
         System.out.println(index);
+    }
+
+    private static class MyDefaultHandler extends DefaultHandler {
+
     }
 }
