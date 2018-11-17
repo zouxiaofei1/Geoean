@@ -7,10 +7,10 @@ import java.util.logging.Logger;
 
 public class GeoMain {
     private static final Logger propertyChangeLogger = Logger.getLogger("propertyChange");
-    private static final String[] ButtonsLeft = {"w1", "w2", "3", "4", "5"};
 
     public static void main(String[] args) {
         new GeoMain();
+        System.out.println(ToolButton.tools);
     }
 
     private GeoMain() {
@@ -34,7 +34,7 @@ public class GeoMain {
         });
         ret.setEnabled(false);
         ArrayList<AbstractButton> buttons = new ArrayList<>();
-        for (int i = 0; i < ButtonsLeft.length; i++) buttons.add(new ToolButton(i));
+        for (int i = 0; i < ToolButton.TOOL_SIZE; i++) buttons.add(new ToolButton(i));
         ret.setLeftComponent(new MyDraggable(buttons));
         return ret;
     }

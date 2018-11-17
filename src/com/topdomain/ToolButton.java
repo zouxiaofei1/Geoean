@@ -9,12 +9,14 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
 public class ToolButton extends JRadioButton {
-    static tool[] tools;
-
+    public static final int TOOL_SIZE=4;
+    public static final tool [] tools = new tool[TOOL_SIZE];
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -22,7 +24,6 @@ public class ToolButton extends JRadioButton {
             Document document = db.parse(ClassLoader.getSystemResourceAsStream("res/tools.xml"));
             NodeList list = document.getElementsByTagName("tool");
             //System.out.println(list.getLength());
-            tools = new tool[list.getLength()];
             for (int i = 0; i < list.getLength(); i++) {
                 Node tool = list.item(i);
                 NodeList child = tool.getChildNodes();
@@ -40,8 +41,8 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
-        //URL url = ClassLoader.getSystemResource(tools[index].map.get("img"));
-        //setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(url)));
+        URL url = ClassLoader.getSystemResource(tools[index].map.get("img"));
+        setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(url)));
     }
 
     static private class tool {

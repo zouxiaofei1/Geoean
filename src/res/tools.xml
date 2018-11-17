@@ -2,14 +2,18 @@
 <element>
     <tool id="1">
         <name>hand</name>
-        <img>hello.png</img>
+        <img>images/hello.png</img>
     </tool>
     <tool id="2">
         <name>size</name>
-        <img>hello.png</img>
+        <img>images/hello.png</img>
     </tool>
     <tool id="3">
         <name>move</name>
-        <img>hello.png</img>
+        <img>images/hello.png</img>
+    </tool>
+    <tool id="4">
+        <name>w4</name>
+        <img>images/hello.png</img>
     </tool>
 </element>
