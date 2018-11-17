@@ -9,16 +9,11 @@ public class MyDraggable extends JViewport {
     JPanel panel = new JPanel();
     ButtonGroup group = new ButtonGroup();
 
-    MyDraggable(ArrayList<JButton> buttons) {
+    MyDraggable(ArrayList<AbstractButton> buttons) {
         BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
         panel.setLayout(layout);
         for (int i = 0; i < buttons.size(); i++) {
-            JButton tmp = buttons.get(i);
-            URL url = getClass().getClassLoader().getResource("images/hello.png");
-            Image img = Toolkit.getDefaultToolkit().createImage(url).getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-            tmp.setIcon(new ImageIcon(img));
-            tmp.setPreferredSize(new Dimension(40, 40));
-            tmp.setFocusPainted(false);
+            AbstractButton tmp = buttons.get(i);
             group.add(tmp);
             panel.add(tmp);
         }
