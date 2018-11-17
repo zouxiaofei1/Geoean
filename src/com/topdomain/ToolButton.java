@@ -13,17 +13,18 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 public class ToolButton extends JRadioButton {
+    static tool[] tools;
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document document = db.parse(ClassLoader.getSystemResourceAsStream("res/tools.xml"));
             NodeList list = document.getElementsByTagName("tool");
-            System.out.println(list.getLength());
+            //System.out.println(list.getLength());
+            tools = new tool[list.getLength()];
             for (int i = 0; i < list.getLength(); i++) {
-                Node tool = list.item(i);
-                NamedNodeMap attrs = tool.getAttributes();
-                System.out.println(attrs.getNamedItem("id"));
+                NodeList child = list.item(i).getChildNodes();
+                System.out.println(child.item(0));
             }
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
@@ -31,5 +32,9 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
+    }
+
+    private class tool{
+
     }
 }
