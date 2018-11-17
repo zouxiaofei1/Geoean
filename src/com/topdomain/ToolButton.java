@@ -29,7 +29,7 @@ public class ToolButton extends JRadioButton {
                 NodeList child = tool.getChildNodes();
                 for(int j=0; j< child.getLength(); j++){
                     if(child.item(j).getNodeType()==Node.ELEMENT_NODE){
-                        //System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
+                        System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
                         //tools[i].put(child.item(j).getNodeName(), child.item(j).getTextContent());
                     }
                 }
