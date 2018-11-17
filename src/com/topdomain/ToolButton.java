@@ -25,8 +25,12 @@ public class ToolButton extends JRadioButton {
             tools = new tool[list.getLength()];
             for (int i = 0; i < list.getLength(); i++) {
                 Node tool = list.item(i);
-                NamedNodeMap attrs = tool.getAttributes();
-                System.out.println();
+                NodeList child = tool.getChildNodes();
+                for(int j=0; j< child.getLength(); j++){
+                    if(child.item(j).getNodeType()==Node.ELEMENT_NODE){
+                        System.out.println(child.item(j).getTextContent());
+                    }
+                }
             }
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
