@@ -22,10 +22,18 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
-        System.out.println(index);
     }
 
     private static class MyDefaultHandler extends DefaultHandler {
+        @Override
+        public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
+            System.out.println("MyDefaultHandler.startElement->" + qName);;
+        }
 
+        @Override
+        public void characters(char[] ch, int start, int length) throws SAXException {
+            String content = new String(ch, start, length);
+            System.out.println("MyDefaultHandler.characters->"+content);
+        }
     }
 }
