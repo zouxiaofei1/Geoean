@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<student fileName="hello">
-    <type/>
-</student>
+<element>
+    <tool id="1">
+        <name>hand</name>
+        <fileName>hello.png</fileName>
+    </tool>
+    <tool id="2">
+        <name>size</name>
+        <fileName>hello.png</fileName>
+    </tool>
+    <tool id="3">
+        <name>move</name>
+        <fileName>hello.png</fileName>
+    </tool>
+</element>

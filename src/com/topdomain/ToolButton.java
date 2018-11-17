@@ -1,39 +1,35 @@
 package com.topdomain;
 
-
-import org.xml.sax.*;
-import org.xml.sax.helpers.DefaultHandler;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javax.swing.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 
 public class ToolButton extends JRadioButton {
     static {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
-            SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-            parser.parse(ClassLoader.getSystemClassLoader().getResourceAsStream("res/tools.xml"), new MyDefaultHandler());
-        } catch (SAXException | ParserConfigurationException | IOException e) {
+            DocumentBuilder db=dbf.newDocumentBuilder();
+            Document document = db.parse(ClassLoader.getSystemResourceAsStream("res/tools.xml"));
+            NodeList list = document.getElementsByTagName("tool");
+            System.out.println(list.getLength());
+            for(int i=0; i<list.getLength(); i++){
+                Node tool = list.item(i);
+                NamedNodeMap attrs = tool.getAttributes();
+                System.out.println(attrs.getNamedItem("id"));
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public ToolButton(int index) {
-    }
-
-    private static class MyDefaultHandler extends DefaultHandler {
-        @Override
-        public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
-            System.out.println("MyDefaultHandler.startElement->" + qName);;
-        }
-
-        @Override
-        public void characters(char[] ch, int start, int length) throws SAXException {
-            String content = new String(ch, start, length);
-            System.out.println("MyDefaultHandler.characters->"+content);
-        }
     }
 }
