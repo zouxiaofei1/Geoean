@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class ToolButton extends JRadioButton {
     static tool[] tools;
+
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -23,8 +24,9 @@ public class ToolButton extends JRadioButton {
             //System.out.println(list.getLength());
             tools = new tool[list.getLength()];
             for (int i = 0; i < list.getLength(); i++) {
-                NodeList child = list.item(i).getChildNodes();
-                System.out.println(child.item(0));
+                Node tool = list.item(i);
+                NamedNodeMap attrs = tool.getAttributes();
+                System.out.println();
             }
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
@@ -34,7 +36,7 @@ public class ToolButton extends JRadioButton {
     public ToolButton(int index) {
     }
 
-    private class tool{
+    private class tool {
 
     }
 }
