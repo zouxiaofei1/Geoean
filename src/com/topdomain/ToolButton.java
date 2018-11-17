@@ -22,6 +22,6 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
-
+        System.out.println(index);
     }
 }
