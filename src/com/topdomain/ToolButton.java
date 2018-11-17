@@ -1,7 +1,6 @@
 package com.topdomain;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -11,6 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ToolButton extends JRadioButton {
     static tool[] tools;
@@ -26,9 +26,11 @@ public class ToolButton extends JRadioButton {
             for (int i = 0; i < list.getLength(); i++) {
                 Node tool = list.item(i);
                 NodeList child = tool.getChildNodes();
+                tools[i] = new tool();
                 for(int j=0; j< child.getLength(); j++){
                     if(child.item(j).getNodeType()==Node.ELEMENT_NODE){
-                        System.out.println(child.item(j).getTextContent());
+                        //System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
+                        tools[i].map.put(child.item(j).getNodeName(), child.item(j).getTextContent());
                     }
                 }
             }
@@ -38,9 +40,11 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
+        //URL url = ClassLoader.getSystemResource(tools[index].map.get("img"));
+        //setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(url)));
     }
 
-    private class tool {
-
+    static private class tool {
+        HashMap<String, String> map = new HashMap<>();
     }
 }
