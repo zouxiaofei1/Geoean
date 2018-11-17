@@ -15,8 +15,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 public class ToolButton extends JRadioButton {
-    public static final int TOOL_SIZE=4;
-    public static final tool [] tools = new tool[TOOL_SIZE];
+    public static int TOOL_SIZE;
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -24,14 +23,14 @@ public class ToolButton extends JRadioButton {
             Document document = db.parse(ClassLoader.getSystemResourceAsStream("res/tools.xml"));
             NodeList list = document.getElementsByTagName("tool");
             //System.out.println(list.getLength());
+            TOOL_SIZE = list.getLength();
             for (int i = 0; i < list.getLength(); i++) {
                 Node tool = list.item(i);
                 NodeList child = tool.getChildNodes();
-                tools[i] = new tool();
                 for(int j=0; j< child.getLength(); j++){
                     if(child.item(j).getNodeType()==Node.ELEMENT_NODE){
                         //System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
-                        tools[i].map.put(child.item(j).getNodeName(), child.item(j).getTextContent());
+                        //tools[i].put(child.item(j).getNodeName(), child.item(j).getTextContent());
                     }
                 }
             }
@@ -41,11 +40,6 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
-        URL url = ClassLoader.getSystemResource(tools[index].map.get("img"));
-        setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(url)));
-    }
 
-    static private class tool {
-        HashMap<String, String> map = new HashMap<>();
     }
 }

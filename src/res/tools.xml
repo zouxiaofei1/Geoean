@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <element>
-    <tool id="1">
+    <tool>
         <name>hand</name>
         <img>images/hello.png</img>
     </tool>
-    <tool id="2">
+    <tool>
         <name>size</name>
         <img>images/hello.png</img>
     </tool>
-    <tool id="3">
+    <tool>
         <name>move</name>
         <img>images/hello.png</img>
     </tool>
-    <tool id="4">
+    <tool>
         <name>w4</name>
         <img>images/hello.png</img>
     </tool>

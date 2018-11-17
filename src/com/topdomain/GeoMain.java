@@ -10,7 +10,6 @@ public class GeoMain {
 
     public static void main(String[] args) {
         new GeoMain();
-        System.out.println(ToolButton.tools);
     }
 
     private GeoMain() {
