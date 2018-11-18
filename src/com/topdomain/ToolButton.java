@@ -9,13 +9,12 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 
 public class ToolButton extends JRadioButton {
     public static int TOOL_SIZE;
+    static URL[] urlDefaults, urlSelects;
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -27,10 +26,15 @@ public class ToolButton extends JRadioButton {
             for (int i = 0; i < list.getLength(); i++) {
                 Node tool = list.item(i);
                 NodeList child = tool.getChildNodes();
-                for(int j=0; j< child.getLength(); j++){
-                    if(child.item(j).getNodeType()==Node.ELEMENT_NODE){
-                        System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
-                        //tools[i].put(child.item(j).getNodeName(), child.item(j).getTextContent());
+                for (int j = 0; j < child.getLength(); j++) {
+                    if (child.item(j).getNodeType() == Node.ELEMENT_NODE) {
+                        //System.out.println(child.item(j).getNodeName() + " " + child.item(j).getTextContent());
+                        switch (child.item(j).getNodeName()) {
+                            case "img":
+                                break;
+                            default:
+                                System.err.println("file://res/tools.xml\n\t未知的Element:<" + child.item(j).getNodeName()+'>');
+                        }
                     }
                 }
             }
