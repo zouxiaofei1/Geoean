@@ -5,8 +5,8 @@
         <img>tool_hand_tool_</img>
     </tool>
     <tool>
-        <name>size</name>
-        <img>images/hello.png</img>
+        <name>point</name>
+        <img>tool</img>
     </tool>
     <tool>
         <name>move</name>
