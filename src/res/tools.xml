@@ -2,7 +2,7 @@
 <element>
     <tool>
         <name>hand</name>
-        <img>images/hello.png</img>
+        <img>tool_hand_tool_</img>
     </tool>
     <tool>
         <name>size</name>
