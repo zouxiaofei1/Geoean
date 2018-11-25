@@ -2,18 +2,18 @@
 <element>
     <tool>
         <name>hand</name>
-        <img>tool_hand_tool_</img>
+        <img>images/tools/tool_hand_tool_inactive.png</img>
     </tool>
     <tool>
         <name>point</name>
-        <img>tool</img>
+        <img>images/tools/tool_point_tool_inactive.png</img>
     </tool>
     <tool>
-        <name>move</name>
-        <img>images/hello.png</img>
+        <name>line</name>
+        <img>images/tools/tool_line_tool_inactive.png</img>
     </tool>
     <tool>
-        <name>w4</name>
-        <img>images/hello.png</img>
+        <name>circle</name>
+        <img>images/tools/tool_circle_tool_inactive.png</img>
     </tool>
 </element>
