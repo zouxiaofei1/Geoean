@@ -9,8 +9,8 @@ class MyDraggable extends JViewport {
         JPanel panel = new JPanel();
         BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
         panel.setLayout(layout);
+        ButtonGroup group = new ButtonGroup();
         for (AbstractButton tmp : buttons) {
-            ButtonGroup group = new ButtonGroup();
             group.add(tmp);
             panel.add(tmp);
         }

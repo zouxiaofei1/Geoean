@@ -33,7 +33,7 @@ class ToolButton extends JRadioButton {
                 icons[i] = new ImageIcon[3];
                 for (int j = 0; j < child.getLength(); j++) {
                     if (child.item(j).getNodeType() == Node.ELEMENT_NODE) {
-                        //System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
+                        // System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
                         switch (child.item(j).getNodeName()) {
                             case "img":
                                 icons[i][0] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
@@ -70,4 +70,5 @@ class ToolButton extends JRadioButton {
         setMargin(new Insets(0, 0, 0, 0));
 
     }
+
 }

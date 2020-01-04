@@ -8,9 +8,6 @@ import java.util.logging.Logger;
 public class GeoMain {
     private static final Logger eventLogger = Logger.getLogger("propertyChange");
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(GeoMain::new);
-    }
 
     private GeoMain() {
         final JFrame frame = new JFrame("Hello World");
@@ -21,8 +18,18 @@ public class GeoMain {
         frame.setVisible(true);
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(GeoMain::new);
+    }
+
     private Container initContentPane() {
-        JSplitPane ret = new JSplitPane();
+
+        ArrayList<AbstractButton> toolButtons = new ArrayList<>();
+
+        for (int i = 0; i < ToolButton.TOOL_SIZE; i++) {
+            toolButtons.add(new ToolButton(i));
+        }
+        JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MyDraggable(toolButtons), new Panel());
         ret.setOneTouchExpandable(true);
         ret.addPropertyChangeListener(evt -> {
             if (evt.getPropertyName().equals("dividerLocation")) {
@@ -32,9 +39,7 @@ public class GeoMain {
             }
         });
         ret.setEnabled(false);
-        ArrayList<AbstractButton> buttons = new ArrayList<>();
-        for (int i = 0; i < ToolButton.TOOL_SIZE; i++) buttons.add(new ToolButton(i));
-        ret.setLeftComponent(new MyDraggable(buttons));
+        // ret.setRightComponent(new JPanel());
         return ret;
     }
 }
