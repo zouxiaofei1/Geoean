@@ -9,12 +9,7 @@ public class GeoMain {
     private static final Logger eventLogger = Logger.getLogger("propertyChange");
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new GeoMain();
-            }
-        });
+        SwingUtilities.invokeLater(GeoMain::new);
     }
 
     private GeoMain() {

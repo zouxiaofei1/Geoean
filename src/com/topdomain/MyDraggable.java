@@ -1,19 +1,16 @@
 package com.topdomain;
 
 import javax.swing.*;
-import java.awt.*;
-import java.net.URL;
 import java.util.ArrayList;
 
-public class MyDraggable extends JViewport {
-    JPanel panel = new JPanel();
-    ButtonGroup group = new ButtonGroup();
+class MyDraggable extends JViewport {
 
     MyDraggable(ArrayList<AbstractButton> buttons) {
+        JPanel panel = new JPanel();
         BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
         panel.setLayout(layout);
-        for (int i = 0; i < buttons.size(); i++) {
-            AbstractButton tmp = buttons.get(i);
+        for (AbstractButton tmp : buttons) {
+            ButtonGroup group = new ButtonGroup();
             group.add(tmp);
             panel.add(tmp);
         }
