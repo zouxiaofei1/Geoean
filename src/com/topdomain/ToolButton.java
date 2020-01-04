@@ -14,9 +14,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
-public class ToolButton extends JRadioButton {
-    public static int TOOL_SIZE;
-    static ImageIcon[][] icons;
+class ToolButton extends JRadioButton {
+    static int TOOL_SIZE;
+    private static ImageIcon[][] icons;
 
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -50,7 +50,7 @@ public class ToolButton extends JRadioButton {
         }
     }
 
-    public ToolButton(int index) {
+    ToolButton(int index) {
         setIcon(icons[index][0]);
         setSelectedIcon(icons[index][1]);
         addMouseListener(new MouseAdapter() {
