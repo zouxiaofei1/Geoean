@@ -5,19 +5,19 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.print.attribute.HashPrintJobAttributeSet;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.net.URL;
-import java.util.HashMap;
 
 public class ToolButton extends JRadioButton {
     public static int TOOL_SIZE;
-    static HashMap[] tools;
+    static ImageIcon[][] icons;
+
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -26,15 +26,22 @@ public class ToolButton extends JRadioButton {
             NodeList list = document.getElementsByTagName("tool");
             //System.out.println(list.getLength());
             TOOL_SIZE = list.getLength();
-            tools = new HashMap[TOOL_SIZE];
+            icons = new ImageIcon[TOOL_SIZE][];
             for (int i = 0; i < list.getLength(); i++) {
                 Node tool = list.item(i);
                 NodeList child = tool.getChildNodes();
-                tools[i] = new HashMap();
-                for(int j=0; j< child.getLength(); j++){
-                    if(child.item(j).getNodeType()==Node.ELEMENT_NODE){
-                        System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
-                        tools[i].put(child.item(j).getNodeName(), child.item(j).getTextContent());
+                icons[i] = new ImageIcon[3];
+                for (int j = 0; j < child.getLength(); j++) {
+                    if (child.item(j).getNodeType() == Node.ELEMENT_NODE) {
+                        //System.out.println(child.item(j).getNodeName()+" "+child.item(j).getTextContent());
+                        switch (child.item(j).getNodeName()) {
+                            case "img":
+                                icons[i][0] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
+                            case "simg":
+                                icons[i][1] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
+                            case "fimg":
+                                icons[i][2] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
+                        }
                     }
                 }
             }
@@ -44,6 +51,23 @@ public class ToolButton extends JRadioButton {
     }
 
     public ToolButton(int index) {
-        setIcon(new ImageIcon(ClassLoader.getSystemResource(tools[index].get("img").toString())));
+        setIcon(icons[index][0]);
+        setSelectedIcon(icons[index][1]);
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                setIcon(icons[index][2]);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                setIcon(icons[index][0]);
+            }
+        });
+        //setIcon(new ImageIcon(ClassLoader.getSystemResource(tools[index].get("img").toString())));
+        setMargin(new Insets(0, 0, 0, 0));
+
     }
 }

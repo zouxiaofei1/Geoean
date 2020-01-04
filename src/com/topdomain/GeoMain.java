@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class GeoMain {
-    private static final Logger propertyChangeLogger = Logger.getLogger("propertyChange");
+    private static final Logger eventLogger = Logger.getLogger("propertyChange");
 
     public static void main(String[] args) {
-        new GeoMain();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GeoMain();
+            }
+        });
     }
 
     private GeoMain() {
@@ -26,7 +31,7 @@ public class GeoMain {
         ret.setOneTouchExpandable(true);
         ret.addPropertyChangeListener(evt -> {
             if (evt.getPropertyName().equals("dividerLocation")) {
-                propertyChangeLogger.info(evt.getPropertyName() + ":OldValue=" + evt.getOldValue() + " NewValue=" + evt.getNewValue());
+                eventLogger.info(evt.getPropertyName() + ":OldValue=" + evt.getOldValue() + " NewValue=" + evt.getNewValue());
                 if ((int) evt.getOldValue() > 1 && (int) evt.getNewValue() > (int) evt.getOldValue())
                     ret.setDividerLocation((int) evt.getOldValue());
             }
