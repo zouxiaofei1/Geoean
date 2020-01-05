@@ -29,7 +29,7 @@ public class GeoMain {
         for (int i = 0; i < ToolButton.TOOL_SIZE; i++) {
             toolButtons.add(new ToolButton(i));
         }
-        JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MyDraggable(toolButtons), new Panel());
+        JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MyDraggable(toolButtons), new PaintPanel());
         ret.setOneTouchExpandable(true);
         ret.addPropertyChangeListener(evt -> {
             if (evt.getPropertyName().equals("dividerLocation")) {
@@ -41,5 +41,14 @@ public class GeoMain {
         ret.setEnabled(false);
         // ret.setRightComponent(new JPanel());
         return ret;
+    }
+
+    private static class PaintPanel extends JPanel {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.draw3DRect(0, 0, 10, 10, true);
+
+        }
     }
 }
