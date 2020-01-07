@@ -2,15 +2,19 @@ package com.topdomain;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class GeoMain {
     private static final Logger eventLogger = Logger.getLogger("propertyChange");
+    final JFrame frame;
 
 
     private GeoMain() {
-        final JFrame frame = new JFrame("Hello World");
+        frame = new JFrame("Hello World");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(800, 400);
         frame.setLocationRelativeTo(null);
@@ -28,8 +32,22 @@ public class GeoMain {
 
         for (int i = 0; i < ToolButton.TOOL_SIZE; i++) {
             toolButtons.add(new ToolButton(i));
+            toolButtons.get(i).setMnemonic('0'+i);
         }
         JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MyDraggable(toolButtons), new PaintPanel());
+        ret.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                ret.requestFocus();
+                System.out.println(ret.hasFocus());
+                System.out.println(ret.getParent().hasFocus());
+                System.out.println(frame.getMostRecentFocusOwner());
+                if(frame.getMostRecentFocusOwner() instanceof ToolButton) {
+                    System.out.println(((ToolButton) frame.getMostRecentFocusOwner()).getIndex());
+                }
+            }
+        });
         ret.setOneTouchExpandable(true);
         ret.addPropertyChangeListener(evt -> {
             if (evt.getPropertyName().equals("dividerLocation")) {

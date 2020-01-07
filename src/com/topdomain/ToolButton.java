@@ -17,6 +17,7 @@ import java.io.IOException;
 class ToolButton extends JRadioButton {
     static int TOOL_SIZE;
     private static ImageIcon[][] icons;
+    private final int index;
 
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -51,6 +52,7 @@ class ToolButton extends JRadioButton {
     }
 
     ToolButton(int index) {
+        this.index = index;
         setIcon(icons[index][0]);
         setSelectedIcon(icons[index][1]);
         addMouseListener(new MouseAdapter() {
@@ -70,5 +72,7 @@ class ToolButton extends JRadioButton {
         setMargin(new Insets(0, 0, 0, 0));
 
     }
-
+    public int getIndex() {
+        return index;
+    }
 }
