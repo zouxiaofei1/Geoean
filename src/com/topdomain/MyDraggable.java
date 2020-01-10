@@ -5,9 +5,9 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 class MyDraggable extends JViewport {
-
+    public JPanel panel;
     MyDraggable(ArrayList<AbstractButton> buttons) {
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
         panel.setLayout(layout);
         ButtonGroup group = new ButtonGroup();

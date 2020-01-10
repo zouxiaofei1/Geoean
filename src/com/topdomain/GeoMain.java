@@ -2,6 +2,7 @@ package com.topdomain;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -19,6 +20,11 @@ public class GeoMain {
         frame.setSize(800, 400);
         frame.setLocationRelativeTo(null);
         frame.setContentPane(initContentPane());
+        frame.getGlassPane().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+        });
         frame.setVisible(true);
     }
 
@@ -26,13 +32,13 @@ public class GeoMain {
         SwingUtilities.invokeLater(GeoMain::new);
     }
 
-    private Container initContentPane() {
+    private JSplitPane initContentPane() {
 
         ArrayList<AbstractButton> toolButtons = new ArrayList<>();
 
         for (int i = 0; i < ToolButton.TOOL_SIZE; i++) {
             toolButtons.add(new ToolButton(i));
-            toolButtons.get(i).setMnemonic('0'+i);
+            // toolButtons.get(i).setMnemonic('0' + i);
         }
         JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MyDraggable(toolButtons), new PaintPanel());
         ret.addMouseListener(new MouseAdapter() {
@@ -41,15 +47,29 @@ public class GeoMain {
                 super.mouseClicked(e);
                 ret.requestFocus();
                 System.out.println(ret.hasFocus());
-                System.out.println(ret.getParent().hasFocus());
+
                 System.out.println(frame.getMostRecentFocusOwner());
-                if(frame.getMostRecentFocusOwner() instanceof ToolButton) {
+                System.out.println("Parent = " + frame.getMostRecentFocusOwner().getParent());
+
+                if (frame.getMostRecentFocusOwner() instanceof ToolButton) {
                     System.out.println(((ToolButton) frame.getMostRecentFocusOwner()).getIndex());
+                }
+                Print(frame.getComponents(), 0);
+            }
+
+            private void Print(Component[] components, int dep) {
+                if (components == null) return;
+                for (Component i :
+                        components) {
+                    System.out.println(dep + ":" + i);
+                    if (i instanceof Container) Print(((Container) i).getComponents(), dep + 1);
                 }
             }
         });
         ret.setOneTouchExpandable(true);
-        ret.addPropertyChangeListener(evt -> {
+        ret.addPropertyChangeListener(evt ->
+
+        {
             if (evt.getPropertyName().equals("dividerLocation")) {
                 eventLogger.info(evt.getPropertyName() + ":OldValue=" + evt.getOldValue() + " NewValue=" + evt.getNewValue());
                 if ((int) evt.getOldValue() > 1 && (int) evt.getNewValue() > (int) evt.getOldValue())
