@@ -39,14 +39,6 @@ public class GeoMain {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ret.requestFocus();
-                System.out.println(ret.hasFocus());
-
-                System.out.println(frame.getMostRecentFocusOwner());
-                System.out.println("Parent = " + frame.getMostRecentFocusOwner().getParent());
-
-                if (frame.getMostRecentFocusOwner() instanceof ToolButton) {
-                    System.out.println(((ToolButton) frame.getMostRecentFocusOwner()).getIndex());
-                }
                 Print(frame.getComponents(), 0);
             }
 
@@ -75,9 +67,8 @@ public class GeoMain {
 
     private void Print(Component[] components, int dep) {
         if (components == null) return;
-        for (Component i :
-                components) {
-            System.out.println(dep + ":" + i);
+        for (Component i : components) {
+            eventLogger.info(dep + ":" + i);
             if (i instanceof Container) Print(((Container) i).getComponents(), dep + 1);
         }
     }

@@ -40,7 +40,6 @@ class MyDraggable extends JViewport {
                 if (needToMove || Math.abs(newY - oldY) > 16) {
                     needToMove = true;
                     setViewPosition(new Point(getViewPosition().x, Math.max(0, getViewPosition().y - newY + oldY)));
-                    System.out.println(oldY - newY);
                     oldY = newY;
                 }
             }
