@@ -41,9 +41,9 @@ class ToolButton extends JRadioButton {
                         switch (child.item(j).getNodeName()) {
                             case "img":
                                 icons[i][0] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
-                            case "simg":
+                            case "s_img":
                                 icons[i][1] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
-                            case "fimg":
+                            case "f_img":
                                 icons[i][2] = new ImageIcon(ClassLoader.getSystemResource(child.item(j).getTextContent()));
                         }
                     }

@@ -3,73 +3,73 @@
     <tool>
         <name>hand</name>
         <img>res/tools/tool_hand_tool_inactive.png</img>
-        <simg>res/tools/tool_hand_tool_active.png</simg>
-        <fimg>res/tools/tool_hand_tool_focus.png</fimg>
+        <s_img>res/tools/tool_hand_tool_active.png</s_img>
+        <f_img>res/tools/tool_hand_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>point</name>
         <img>res/tools/tool_point_tool_inactive.png</img>
-        <simg>res/tools/tool_point_tool_active.png</simg>
-        <fimg>res/tools/tool_point_tool_focus.png</fimg>
+        <s_img>res/tools/tool_point_tool_active.png</s_img>
+        <f_img>res/tools/tool_point_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>line</name>
         <img>res/tools/tool_line_tool_inactive.png</img>
-        <simg>res/tools/tool_line_tool_active.png</simg>
-        <fimg>res/tools/tool_line_tool_focus.png</fimg>
+        <s_img>res/tools/tool_line_tool_active.png</s_img>
+        <f_img>res/tools/tool_line_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>circle</name>
         <img>res/tools/tool_circle_tool_inactive.png</img>
-        <simg>res/tools/tool_circle_tool_active.png</simg>
-        <fimg>res/tools/tool_circle_tool_focus.png</fimg>
+        <s_img>res/tools/tool_circle_tool_active.png</s_img>
+        <f_img>res/tools/tool_circle_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>hand</name>
         <img>res/tools/tool_hand_tool_inactive.png</img>
-        <simg>res/tools/tool_hand_tool_active.png</simg>
-        <fimg>res/tools/tool_hand_tool_focus.png</fimg>
+        <s_img>res/tools/tool_hand_tool_active.png</s_img>
+        <f_img>res/tools/tool_hand_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>point</name>
         <img>res/tools/tool_point_tool_inactive.png</img>
-        <simg>res/tools/tool_point_tool_active.png</simg>
-        <fimg>res/tools/tool_point_tool_focus.png</fimg>
+        <s_img>res/tools/tool_point_tool_active.png</s_img>
+        <f_img>res/tools/tool_point_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>line</name>
         <img>res/tools/tool_line_tool_inactive.png</img>
-        <simg>res/tools/tool_line_tool_active.png</simg>
-        <fimg>res/tools/tool_line_tool_focus.png</fimg>
+        <s_img>res/tools/tool_line_tool_active.png</s_img>
+        <f_img>res/tools/tool_line_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>circle</name>
         <img>res/tools/tool_circle_tool_inactive.png</img>
-        <simg>res/tools/tool_circle_tool_active.png</simg>
-        <fimg>res/tools/tool_circle_tool_focus.png</fimg>
+        <s_img>res/tools/tool_circle_tool_active.png</s_img>
+        <f_img>res/tools/tool_circle_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>hand</name>
         <img>res/tools/tool_hand_tool_inactive.png</img>
-        <simg>res/tools/tool_hand_tool_active.png</simg>
-        <fimg>res/tools/tool_hand_tool_focus.png</fimg>
+        <s_img>res/tools/tool_hand_tool_active.png</s_img>
+        <f_img>res/tools/tool_hand_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>point</name>
         <img>res/tools/tool_point_tool_inactive.png</img>
-        <simg>res/tools/tool_point_tool_active.png</simg>
-        <fimg>res/tools/tool_point_tool_focus.png</fimg>
+        <s_img>res/tools/tool_point_tool_active.png</s_img>
+        <f_img>res/tools/tool_point_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>line</name>
         <img>res/tools/tool_line_tool_inactive.png</img>
-        <simg>res/tools/tool_line_tool_active.png</simg>
-        <fimg>res/tools/tool_line_tool_focus.png</fimg>
+        <s_img>res/tools/tool_line_tool_active.png</s_img>
+        <f_img>res/tools/tool_line_tool_focus.png</f_img>
     </tool>
     <tool>
         <name>circle</name>
         <img>res/tools/tool_circle_tool_inactive.png</img>
-        <simg>res/tools/tool_circle_tool_active.png</simg>
-        <fimg>res/tools/tool_circle_tool_focus.png</fimg>
+        <s_img>res/tools/tool_circle_tool_active.png</s_img>
+        <f_img>res/tools/tool_circle_tool_focus.png</f_img>
     </tool>
 </element>
