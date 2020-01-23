@@ -2,74 +2,74 @@
 <element>
     <tool>
         <name>hand</name>
-        <img>images/tools/tool_hand_tool_inactive.png</img>
-        <simg>images/tools/tool_hand_tool_active.png</simg>
-        <fimg>images/tools/tool_hand_tool_focus.png</fimg>
+        <img>res/tools/tool_hand_tool_inactive.png</img>
+        <simg>res/tools/tool_hand_tool_active.png</simg>
+        <fimg>res/tools/tool_hand_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>point</name>
-        <img>images/tools/tool_point_tool_inactive.png</img>
-        <simg>images/tools/tool_point_tool_active.png</simg>
-        <fimg>images/tools/tool_point_tool_focus.png</fimg>
+        <img>res/tools/tool_point_tool_inactive.png</img>
+        <simg>res/tools/tool_point_tool_active.png</simg>
+        <fimg>res/tools/tool_point_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>line</name>
-        <img>images/tools/tool_line_tool_inactive.png</img>
-        <simg>images/tools/tool_line_tool_active.png</simg>
-        <fimg>images/tools/tool_line_tool_focus.png</fimg>
+        <img>res/tools/tool_line_tool_inactive.png</img>
+        <simg>res/tools/tool_line_tool_active.png</simg>
+        <fimg>res/tools/tool_line_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>circle</name>
-        <img>images/tools/tool_circle_tool_inactive.png</img>
-        <simg>images/tools/tool_circle_tool_active.png</simg>
-        <fimg>images/tools/tool_circle_tool_focus.png</fimg>
+        <img>res/tools/tool_circle_tool_inactive.png</img>
+        <simg>res/tools/tool_circle_tool_active.png</simg>
+        <fimg>res/tools/tool_circle_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>hand</name>
-        <img>images/tools/tool_hand_tool_inactive.png</img>
-        <simg>images/tools/tool_hand_tool_active.png</simg>
-        <fimg>images/tools/tool_hand_tool_focus.png</fimg>
+        <img>res/tools/tool_hand_tool_inactive.png</img>
+        <simg>res/tools/tool_hand_tool_active.png</simg>
+        <fimg>res/tools/tool_hand_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>point</name>
-        <img>images/tools/tool_point_tool_inactive.png</img>
-        <simg>images/tools/tool_point_tool_active.png</simg>
-        <fimg>images/tools/tool_point_tool_focus.png</fimg>
+        <img>res/tools/tool_point_tool_inactive.png</img>
+        <simg>res/tools/tool_point_tool_active.png</simg>
+        <fimg>res/tools/tool_point_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>line</name>
-        <img>images/tools/tool_line_tool_inactive.png</img>
-        <simg>images/tools/tool_line_tool_active.png</simg>
-        <fimg>images/tools/tool_line_tool_focus.png</fimg>
+        <img>res/tools/tool_line_tool_inactive.png</img>
+        <simg>res/tools/tool_line_tool_active.png</simg>
+        <fimg>res/tools/tool_line_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>circle</name>
-        <img>images/tools/tool_circle_tool_inactive.png</img>
-        <simg>images/tools/tool_circle_tool_active.png</simg>
-        <fimg>images/tools/tool_circle_tool_focus.png</fimg>
+        <img>res/tools/tool_circle_tool_inactive.png</img>
+        <simg>res/tools/tool_circle_tool_active.png</simg>
+        <fimg>res/tools/tool_circle_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>hand</name>
-        <img>images/tools/tool_hand_tool_inactive.png</img>
-        <simg>images/tools/tool_hand_tool_active.png</simg>
-        <fimg>images/tools/tool_hand_tool_focus.png</fimg>
+        <img>res/tools/tool_hand_tool_inactive.png</img>
+        <simg>res/tools/tool_hand_tool_active.png</simg>
+        <fimg>res/tools/tool_hand_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>point</name>
-        <img>images/tools/tool_point_tool_inactive.png</img>
-        <simg>images/tools/tool_point_tool_active.png</simg>
-        <fimg>images/tools/tool_point_tool_focus.png</fimg>
+        <img>res/tools/tool_point_tool_inactive.png</img>
+        <simg>res/tools/tool_point_tool_active.png</simg>
+        <fimg>res/tools/tool_point_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>line</name>
-        <img>images/tools/tool_line_tool_inactive.png</img>
-        <simg>images/tools/tool_line_tool_active.png</simg>
-        <fimg>images/tools/tool_line_tool_focus.png</fimg>
+        <img>res/tools/tool_line_tool_inactive.png</img>
+        <simg>res/tools/tool_line_tool_active.png</simg>
+        <fimg>res/tools/tool_line_tool_focus.png</fimg>
     </tool>
     <tool>
         <name>circle</name>
-        <img>images/tools/tool_circle_tool_inactive.png</img>
-        <simg>images/tools/tool_circle_tool_active.png</simg>
-        <fimg>images/tools/tool_circle_tool_focus.png</fimg>
+        <img>res/tools/tool_circle_tool_inactive.png</img>
+        <simg>res/tools/tool_circle_tool_active.png</simg>
+        <fimg>res/tools/tool_circle_tool_focus.png</fimg>
     </tool>
 </element>

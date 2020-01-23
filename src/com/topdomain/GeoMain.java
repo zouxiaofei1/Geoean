@@ -2,12 +2,9 @@ package com.topdomain;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class GeoMain {
@@ -53,14 +50,6 @@ public class GeoMain {
                 Print(frame.getComponents(), 0);
             }
 
-            private void Print(Component[] components, int dep) {
-                if (components == null) return;
-                for (Component i :
-                        components) {
-                    System.out.println(dep + ":" + i);
-                    if (i instanceof Container) Print(((Container) i).getComponents(), dep + 1);
-                }
-            }
         });
         ret.setOneTouchExpandable(true);
         ret.addPropertyChangeListener(evt -> {
@@ -81,6 +70,15 @@ public class GeoMain {
             super.paintComponent(g);
             g.draw3DRect(0, 0, 10, 10, true);
 
+        }
+    }
+
+    private void Print(Component[] components, int dep) {
+        if (components == null) return;
+        for (Component i :
+                components) {
+            System.out.println(dep + ":" + i);
+            if (i instanceof Container) Print(((Container) i).getComponents(), dep + 1);
         }
     }
 }
