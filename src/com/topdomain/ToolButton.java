@@ -52,7 +52,7 @@ class ToolButton extends JRadioButton {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
-            System.err.println(e.getMessage());;
+            System.err.println(e.getMessage());
         }
     }
 
@@ -63,7 +63,7 @@ class ToolButton extends JRadioButton {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println(e.getModifiersEx());;
+                System.out.println(e.getModifiersEx());
                 getParent().dispatchEvent(e);
             }
 
@@ -87,6 +87,7 @@ class ToolButton extends JRadioButton {
             }
         });
     }
+
     public int getIndex() {
         return index;
     }
