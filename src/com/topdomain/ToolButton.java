@@ -12,7 +12,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
+import java.util.Objects;
 
 class ToolButton extends JRadioButton {
     static int TOOL_SIZE;
@@ -22,8 +24,9 @@ class ToolButton extends JRadioButton {
     static {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
+            System.err.println("Now loading ToolButton static");
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document document = db.parse(ClassLoader.getSystemResourceAsStream("res/tools.xml"));
+            Document document = db.parse(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("res/tools.xml")));
             NodeList list = document.getElementsByTagName("tool");
             //System.out.println(list.getLength());
             TOOL_SIZE = list.getLength();
@@ -48,6 +51,8 @@ class ToolButton extends JRadioButton {
             }
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.err.println(e.getMessage());;
         }
     }
 
@@ -56,6 +61,12 @@ class ToolButton extends JRadioButton {
         setIcon(icons[index][0]);
         setSelectedIcon(icons[index][1]);
         addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println(e.getModifiersEx());;
+                getParent().dispatchEvent(e);
+            }
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
@@ -68,9 +79,13 @@ class ToolButton extends JRadioButton {
                 setIcon(icons[index][0]);
             }
         });
-        //setIcon(new ImageIcon(ClassLoader.getSystemResource(tools[index].get("img").toString())));
-        setMargin(new Insets(0, 0, 0, 0));
-
+        setMargin(new Insets(0, 2, 0, 2));
+        this.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                getParent().dispatchEvent(e);
+            }
+        });
     }
     public int getIndex() {
         return index;

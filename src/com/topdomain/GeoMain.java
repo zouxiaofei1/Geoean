@@ -7,12 +7,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class GeoMain {
     private static final Logger eventLogger = Logger.getLogger("propertyChange");
     final JFrame frame;
-
+    MyDraggable draggable;
 
     private GeoMain() {
         frame = new JFrame("Hello World");
@@ -20,11 +21,6 @@ public class GeoMain {
         frame.setSize(800, 400);
         frame.setLocationRelativeTo(null);
         frame.setContentPane(initContentPane());
-        frame.getGlassPane().addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-        });
         frame.setVisible(true);
     }
 
@@ -40,7 +36,7 @@ public class GeoMain {
             toolButtons.add(new ToolButton(i));
             // toolButtons.get(i).setMnemonic('0' + i);
         }
-        JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MyDraggable(toolButtons), new PaintPanel());
+        JSplitPane ret = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, draggable = new MyDraggable(toolButtons), new PaintPanel());
         ret.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -67,9 +63,7 @@ public class GeoMain {
             }
         });
         ret.setOneTouchExpandable(true);
-        ret.addPropertyChangeListener(evt ->
-
-        {
+        ret.addPropertyChangeListener(evt -> {
             if (evt.getPropertyName().equals("dividerLocation")) {
                 eventLogger.info(evt.getPropertyName() + ":OldValue=" + evt.getOldValue() + " NewValue=" + evt.getNewValue());
                 if ((int) evt.getOldValue() > 1 && (int) evt.getNewValue() > (int) evt.getOldValue())
